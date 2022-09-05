@@ -1,22 +1,31 @@
-//EXECUTAR
-//npm run build
-//node .\dist\index.js ou /npm run start
-
 import express, { Request, Response, NextFunction } from 'express';
+import statusRoute from './routes/status.route';
 //importando a lib do express
 //Request, Response e NextFunction é Typagens do Typescript
 
-const app = express();
-//configurando a aplicação
+//usersRoute são as rotas /users /etc..
+import usersRoute from './routes/users.route';
 
-app.get('/status', (req: Request, res: Response, next: NextFunction) => {
-    res.status(200).send({ foo: 'sucesso total tmj galeras' });
+//configurando a aplicação
+const app = express();
+
+//pra ele entender que é string na url ( sempre adicionar essas linhas )
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); //confg padrão.
+app.use(statusRoute);
+
+
+//aqui ele vai executar o script q ta dentro de users.route.ts
+app.use(usersRoute);
+
 //toda vez que chegar um get no /status ele vai me responder 200
 //com esse JSON 'BAR'
+app.get('/status', (req: Request, res: Response, next: NextFunction) => {
+    res.status(200).send({ foo: 'sucesso total tmj galeras' });
 
 });
 
+//todas requisições que chegarem na porta 3000 vai ser resolvidas pelo APP
 app.listen(3000, () => {
-    //todas requisições que chegarem na porta 3000 vai ser resolvidas pelo APP
     console.log('Aplicação executando na porta 3000!')
 });
