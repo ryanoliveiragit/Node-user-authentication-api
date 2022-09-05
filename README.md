@@ -1,5 +1,8 @@
 # Microserviço de autenticação com Nodejs
 
+![Logo](https://cdn.discordapp.com/attachments/1014229690090786926/1016373061353750670/unknown.png)
+
+
 Este é um projeto desenvolvido durante algumas lives para dissiminação de conhecimento dentro da [DIO](https://digitalinnovation.one/), uma plataforma de cursos gratuíta que todo DEV deveria conhecer! :wink:
 
 Neste projeto iremos criar um **microserviço de autenticação** que poderá compor a sua caixinha de ferramentas e ser muito útil no seu dia a dia. :hammer::wrench:
